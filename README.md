@@ -8,6 +8,7 @@ This project demonstrates essential **Natural Language Processing (NLP)** techni
 - **Lemmatization** (Reducing words to their dictionary base form)
 - **Stopword Removal** (Filtering out common words)
 - **POS Tagging** (Identifying parts of speech in text)
+- **Named Entity Recognition (NER)** (Extracting named entities from text)
 
 ## 📌 Features
 - Convert a **paragraph into sentences**.
@@ -17,6 +18,7 @@ This project demonstrates essential **Natural Language Processing (NLP)** techni
 - Apply **lemmatization** for text normalization.
 - Remove **stopwords** to clean text data.
 - Identify **parts of speech (POS)** in sentences.
+- Perform **Named Entity Recognition (NER)** to extract important entities from text.
 
 ## 📜 Code Explanation
 
@@ -108,6 +110,24 @@ print(pos_tags)
 ```
 ---
 
+### 6️⃣ Named Entity Recognition (NER)
+```python
+import nltk
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+
+sentence = """The Eiffel Tower was built from 1887 by French engineer Gustave Eiffel, whose company
+specialized in building metal frameworks and structures."""
+
+words = nltk.word_tokenize(sentence)
+pos_tag = nltk.pos_tag(words)
+ne = nltk.ne_chunk(pos_tag)
+ne.draw()
+```
+**Named Entity Recognition (NER)** helps identify important entities like persons, organizations, and locations from text.
+
+---
+
 ## 🛠 Requirements
 Ensure you have **NLTK** installed before running the script:
 ```bash
@@ -120,7 +140,9 @@ import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('stopwords')
-nltk.download('averaged_perceptron_tagger_eng')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 ```
 
 ---
@@ -134,4 +156,5 @@ Simply execute the script in a Python environment:
 If you found this project helpful, **star** 🌟 the repository and follow me on GitHub for more NLP projects!
 
 Happy Coding! 🎯
+
 
